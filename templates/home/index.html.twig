@@ -1,9 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
-
-{% block title %}{% endblock %}
-
 {% block body %}
+<main class="container">
+
+        <a href="" class="btn btn-outline-info my-2 my-sm-0" role="button" type="submit" aria-pressed="true">Ajouter un article</a>
+    
+    <div>
+        <div class="row">
+            <div class="col-md-8">
+              
+              {% for onePost in items %}
+                 
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <h3 class="h5 ">{{onePost.title}}</h3>
+                            <p class="card-text">{{onePost.description}}</p>
+                            <p>{{onePost.datetime}}</p>
+                        </div>
+                        <img src="{{onePost.image}}"
+                    </div>
+
+            </div>
+            <div class="col-md-4 d-none d-md-block border-left">
+                <h2 class="h4">Profil d'utilisateur</h2>
+
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <h3 class="h6 ">{{onePost.title}}</h3>
+                            <p class="card-text">{{onePost.description}}</p>
+                            <p>{{onePost.datetime}}</p>
+                        </div>
+                        <img src="{{onePost.image}}">
+                    </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+    </div>
+</main>
 
 {% endblock %}

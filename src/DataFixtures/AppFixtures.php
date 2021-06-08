@@ -26,6 +26,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
+
         for ($i = 0; $i < 10; $i++) {
             $simpleUser = new User();
             $simpleUser->setNickname($faker->firstName());
@@ -33,16 +34,14 @@ class AppFixtures extends Fixture
             $simpleUser->setRoles(["USER_ROLE"]);
             $manager->persist($simpleUser);
 
-            $nbPostsToCreate = random_int(0, 10);
-            for ($j = 0; $j < $nbPostsToCreate; $j++) {
+            for ($j = 0; $j < mt_rand(0, 10); $j++) {
                 $onePost = new Post();
                 $onePost->setTitle($faker->word());
                 $onePost->setDatetime($faker->dateTime("now", null));
                 $onePost->setDescription($faker->text(255));
-                $onePost->setImage($faker->imageUrl(640, 480, null, true, null, true));
+                $onePost->setImage("https://cdn.pixabay.com/photo/2021/06/04/06/09/cherries-6308871_960_720.jpg");
                 $manager->persist($onePost);
             }
-
             $manager->flush();
         }
     }
