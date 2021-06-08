@@ -32,6 +32,17 @@ class Post
      */
     private $Image;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $Datetime;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +80,30 @@ class Post
     public function setImage(?string $Image): self
     {
         $this->Image = $Image;
+
+        return $this;
+    }
+
+    public function getDatetime(): ?\DateTimeInterface
+    {
+        return $this->Datetime;
+    }
+
+    public function setDatetime(\DateTimeInterface $Datetime): self
+    {
+        $this->Datetime = $Datetime;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->Author;
+    }
+
+    public function setAuthor(?User $Author): self
+    {
+        $this->Author = $Author;
 
         return $this;
     }
