@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Les poÈmes!{% endblock %}
+
 {% block body %}
 <main class="container">
 
         <a href="" class="btn btn-outline-info my-2 my-sm-0" role="button" type="submit" aria-pressed="true">Ajouter un article</a>
     
     <div>
+
         <div class="row">
             <div class="col-md-8">
               
@@ -17,7 +20,7 @@
                             <p class="card-text">{{onePost.description}}</p>
                             <p>{{onePost.datetime}}</p>
                         </div>
-                        <img src="{{onePost.image}}"
+                        <img src="{{onePost.image}}">
                     </div>
 
             </div>
@@ -37,7 +40,6 @@
             {% endfor %}
         </div>
 
-    </div>
     </div>
 </main>
 

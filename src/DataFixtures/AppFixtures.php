@@ -42,7 +42,8 @@ class AppFixtures extends Fixture
                 $onePost->setImage("https://cdn.pixabay.com/photo/2021/06/04/06/09/cherries-6308871_960_720.jpg");
                 $manager->persist($onePost);
             }
-            $manager->flush();
         }
+
+        $manager->flush();
     }
 }
