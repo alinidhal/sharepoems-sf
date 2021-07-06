@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <h3 class="h5 ">{{onePost.title}}</h3>
                             <p class="card-text">{{onePost.description}}</p>
-                            <p>{{onePost.datetime}}</p>
+                            <p>{{onePost.datetime | date('d-m-Y H:i:s')}}</p>
                         </div>
                         <img src="{{onePost.image}}">
                     </div>
@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <h3 class="h6 ">{{onePost.title}}</h3>
                             <p class="card-text">{{onePost.description}}</p>
-                            <p>{{onePost.datetime}}</p>
+                            <p>{{onePost.datetime | date('d-m-Y H:i:s')}}</p>
                         </div>
                         <img src="{{onePost.image}}">
                     </div>

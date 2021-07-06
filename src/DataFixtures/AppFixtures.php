@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 10; $i++) {
             $simpleUser = new User();
-            $simpleUser->setNickname($faker->firstName());
+            $simpleUser->setNickname($faker->firstName() . $i);
             $simpleUser->setPassword($this->encode($simpleUser, "toto"));
             $simpleUser->setRoles(["USER_ROLE"]);
             $manager->persist($simpleUser);
@@ -40,6 +40,7 @@ class AppFixtures extends Fixture
                 $onePost->setDatetime($faker->dateTime("now", null));
                 $onePost->setDescription($faker->text(255));
                 $onePost->setImage("https://cdn.pixabay.com/photo/2021/06/04/06/09/cherries-6308871_960_720.jpg");
+                $onePost->setAuthor($simpleUser);
                 $manager->persist($onePost);
             }
         }
